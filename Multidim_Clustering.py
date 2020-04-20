@@ -25,8 +25,7 @@ df.columns = [val[0].strip("\t") for val in doc_data.body[0][0]]
 for i in range(3):
     df[headings[i]] = df[headings[i]].astype(float)
 X= df.iloc[:,[1, 2, 3]].values
-y_set = df.iloc[:,[0]].values #TYPE column with the four class initial assignment
-# print(y_set)
+
 kmeans = KMeans(n_clusters = 3, init = 'k-means++', max_iter=300, n_init = 10, random_state=0)
 y_kmeans = kmeans.fit_predict(X)
 
@@ -43,7 +42,6 @@ ax.set_ylabel(headings[1])
 ax.set_zlabel(headings[2])
 plt.legend()
 plt.show()
-# showGraph("Carbon Emission", headings[0], [min(x), max(x)], headings[1], [min(y), max(y)], headings[2], [min(z)-1, max(z)], [t1,t2,t3,t4,centroids])
 
 
 
